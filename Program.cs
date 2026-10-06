@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        DataType();
+        Varialbe();
     }
     static void HelloWorld() {
         // writeline은 내용을 콘솔에 표시하고 다음줄로 간다.
@@ -20,7 +20,16 @@ class Program
         int a = 0; // a에 0을 할당한다.
         Console.WriteLine("Hello, World!");
     }
-    static void DataType() {
+        static  int globalVar = 7;
+    static void Varialbe()
+    {
+        int localVar = 5;
+        const int MAX_VAL = 100;
+        Console.WriteLine(localVar);
+        Console.WriteLine(globalVar);
+        Console.WriteLine(MAX_VAL);
+    }          
+        static void DataType() {
         bool isRight = true;
         Console.WriteLine(isRight);
 
