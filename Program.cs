@@ -6,7 +6,37 @@ class Program
 {
     static void Main(string[] args)
     {
-        Varialbe();
+        // ArraySample();
+        ListSample();
+    }
+    static void ListSample()
+    {
+        List<int> myList = new List<int>();
+        myList.Add(90);
+        int val = myList[0];
+    }
+    static void ArraySample() {
+        int[] scores = new int[100];
+        scores[0] = 90;
+        int val = scores[0];
+        float[] fs = new float[10];
+        fs[0] = 12.3f;
+        Console.WriteLine(fs[2]);
+
+        int sum = 0;
+        int[] nums = new int[10];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < nums.Length; i++)
+        {
+            nums[i] = rand.Next() % 100;
+        }
+        for(int i = 0; i < nums.Length; i++)
+        {
+            sum += nums[i];
+        }
+        Console.WriteLine(sum);
     }
     static void HelloWorld() {
         // writeline은 내용을 콘솔에 표시하고 다음줄로 간다.
