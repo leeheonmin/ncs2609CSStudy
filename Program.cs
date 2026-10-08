@@ -12,6 +12,19 @@ class Program
         // ArraySample();
         // ListSample();
         QueueSample();
+        StackSample();
+    }
+
+    static void StackSample()
+    {
+        Stack<int> s = new Stack<int>();
+        s.Push(10);
+        s.Push(8);
+        s.Push(16);
+        Console.WriteLine("Peek : " + s.Peek()); 
+        Console.WriteLine(s.Pop());
+        Console.WriteLine(s.Pop());
+        
 
     }
     static void QueueSample()
@@ -20,11 +33,11 @@ class Program
         q.Enqueue(120);
         q.Enqueue(130);
         q.Enqueue(150);
-
+        Console.WriteLine("Peek : " + q.Peek()); // 간보기
         Console.WriteLine(q.Dequeue());
         Console.WriteLine(q.Dequeue());
         Console.WriteLine(q.Dequeue());
-        int next = q.Dequeue();
+        // int next = q.Dequeue();
         
     }
     static void ListSample()
