@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections;
+using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -11,8 +12,61 @@ class Program
     {
         // ArraySample();
         // ListSample();
-        QueueSample();
-        StackSample();
+        // QueueSample();
+        // StackSample();
+        // HashTableSample();
+        DicSample();
+    }
+    static void DicSample()
+    {
+        Dictionary<int, string> emp = new Dictionary<int, string>();   
+        emp.Add(1001, "Jane");
+        emp.Add(1002,"Tom" );
+        emp.Add(1003, "Cindy");
+        string name = emp[1002];
+        // Console.WriteLine(name);
+
+        Dictionary<string, int> scores = new Dictionary<string, int>();
+        scores.Add("철수", 98);
+        scores.Add("영희", 95);
+        // scores.Add("철수", 60);
+        int score = scores["철수"];
+        foreach (KeyValuePair<string, int> kv in scores)
+        {
+            Console.WriteLine("{0} : {1}", kv.Key, kv.Value);
+        }
+        if (scores.ContainsKey("철수"))
+            Console.WriteLine(score);
+
+        // sorted dictionary
+        SortedDictionary<int, string> tmap = new SortedDictionary<int, string>();
+        tmap.Add(1001, "Tom");
+        tmap.Add(1003, "John");
+        tmap.Add(1010, "Irina");
+
+        string name1010 = tmap[1010];
+
+        foreach (KeyValuePair<int, string> kv in tmap)
+        {
+            Console.WriteLine("{0}:{1}", kv.Key, kv.Value);
+        }
+    }
+    static void HashTableSample()
+    {
+        Hashtable ht = new Hashtable();
+        ht.Add("irina", "Irina SP");
+        ht.Add("tom", "Tom Cr");
+
+        // if(ht.Contains("tom"))
+        // {
+        //     Console.WriteLine(ht["tom"]);
+        // }
+
+        Hashtable scores = new Hashtable();
+        scores.Add("철수", 98);
+        scores.Add("영희", "95");
+        int score = (int) scores["철수"];
+        Console.WriteLine(score);
     }
 
     static void StackSample()
