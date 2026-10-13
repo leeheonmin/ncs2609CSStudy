@@ -17,7 +17,43 @@ class Program
         // StackSample();
         // HashTableSample();
         // DicSample();
-        ArraySample2();
+        // ArraySample2();
+        CodingGuide();
+    }
+
+    static void CodingGuide()
+    {
+        int sum = 0;
+        bool condition = false;
+        if (condition)
+        {
+            sum++;
+        } 
+        else
+        {
+            sum--; 
+        }
+        for (int i = 0; i < 100; i++)
+        {
+            ArraySample2();
+            ArraySample();
+        }
+
+        int category = 1;
+
+        switch (category)
+        {
+            case 0: 
+                ArraySample();
+                break;
+            case 1:
+                {
+                    int n = 1;
+                    ArraySample2();
+                }
+                break;
+        }
+            
     }
     static void ArraySample2()
     {
