@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Data;
 using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
@@ -15,7 +16,56 @@ class Program
         // QueueSample();
         // StackSample();
         // HashTableSample();
-        DicSample();
+        // DicSample();
+        ArraySample2();
+    }
+    static void ArraySample2()
+    {
+        string[] players = new string[10];
+        // string[] Regions = new string[3]{"서울", "경기", "부산"};
+        string[] Regions = {"서울", "경기", "부산"};
+
+        Console.WriteLine("{0}, {1}", players.Length, Regions.Length);
+
+        string[,] Depts = {{"김", "경리"}, {"이", "총무"}};
+        int[,] dsum = new int[3 ,2];
+        // dsum[0, 0] = 0;
+        // dsum[0, 1] = 1;
+        // dsum[0, 2] = 2;
+        
+
+        // int[,] dsum2 = new int[3, 2]{{0, 1}, {2, 3}, {4, 5}};
+        int[,] dsum2 = {{0, 1}, {2, 3}, {4, 5}};
+        string[,,] Cubes;
+
+        int[][] A = new int[3][];
+        A[0] = new int[2];
+        A[1] = new int[3]{1, 2, 3};
+        A[2] = new int[4]{1, 2, 3, 4};
+
+        A[0][0] = 1;
+        A[0][1] = 2;
+
+        int total = 0;
+        int[] scores = {80, 78, 60, 90, 100};
+        total = CalculateSum(scores);
+        // for (int i = 0; i < scores.Length; i++)
+        // {    
+        //     total += scores[i];
+        // }
+
+        Console.WriteLine("{0}", total);
+
+    }
+
+    static int CalculateSum(int[] scoresArray)
+    {
+        int sum = 0;
+        for (int i = 0; i < scoresArray.Length; i++)
+        {
+            sum += scoresArray[i];
+        }
+        return sum;
     }
     static void DicSample()
     {
