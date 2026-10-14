@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace CSStudy;
 
@@ -19,10 +20,59 @@ class Program
         // DicSample();
         // ArraySample2();
         CodingGuide();
+        // StringSample();
+
     }
 
+    static async Task StringSample()
+    {
+        string s1 = "C#";
+        string s2 = "Programing";
+
+        string s3 = s1 + " " + s2;
+        // Console.WriteLine("String : {0} {1}", s1, s2);
+        // Console.WriteLine($"String : {s1} {s2}");
+
+        string s3sub = s3.Substring(1, 5);
+        // Console.WriteLine("Sub : {0}", s3sub);
+
+        string s = "C# Studies";
+        // for (int i = 0; i < s.Length; i++)
+        // {
+        //     Console.WriteLine("{0} : {1}", 1, s[i]);
+        // }
+
+        string str = "Hello";
+        char[] charArray = str.ToCharArray();
+        for (int i = 0; i < charArray.Length; i++)
+        {
+            // Console.WriteLine(charArray[i]);
+        }
+        
+        char[] charArr2 = ['A', 'B', 'C', 'D'];
+        s = new string(charArr2);
+        // Console.WriteLine(s);
+
+        char c1 = 'A';
+        char c2 = (char)(c1 + 3);
+        // Console.WriteLine(c2);
+
+        StringBuilder sb = new StringBuilder();
+        string s6 = "";
+        for (int i = 1; i <= 26; i++)
+        {
+            // sb.Append(i.ToString());
+            // sb.Append(System.Environment.NewLine);
+            s6 += i.ToString();
+            s6 += System.Environment.NewLine;
+        }
+        // string s5 = sb.ToString();
+
+        Console.WriteLine(s6);
+    }
     static void CodingGuide()
     {
+        /*
         int sum = 0;
         bool condition = false;
         if (condition)
@@ -53,6 +103,17 @@ class Program
                 }
                 break;
         }
+        */
+
+        bool isValid = false;
+        int a = 0, b = 0;
+        // if (isValid == true) a = 2;
+        if (isValid) a = 2;
+
+        // if (isValid == false) b = 2;
+        if (!isValid) b = 2;
+
+        Console.WriteLine("a : {0}, b : {1}", a, b);
             
     }
     static void ArraySample2()
