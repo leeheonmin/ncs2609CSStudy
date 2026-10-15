@@ -12,18 +12,66 @@ class Program
 {
     static void Main(string[] args)
     {
-        // ArraySample();
-        // ListSample();
-        // QueueSample();
-        // StackSample();
-        // HashTableSample();
-        // DicSample();
-        // ArraySample2();
-        CodingGuide();
-        // StringSample();
-
+    
+        EnumSample();
+    }
+    public enum Category
+    {
+        Cake = 100,
+        IceCream = 13,
+        Bread
     }
 
+    enum City
+    {
+        Seoul,
+        Deajun,
+        Busan = 5,
+        Jeju = 10
+    }
+    enum EnglishDay
+    {
+        Sunday, Monday, Tuesday, Wednesay, Thusday, Friday, Saturday
+    }
+    [Flags]
+    enum Border
+    {
+        None = 0,
+        Top = 1,
+        Right = 2,
+        Bottom = 4,
+        Left = 8
+    }
+    static void EnumSample()
+    {
+        City myCity = City.Jeju;
+        myCity = City.Seoul;
+        int cityValue = (int)myCity;
+
+        if (myCity == City.Seoul)
+        {
+            Console.WriteLine("조선의 궁궐에 당도한것을 환영하오 낯선이여. 난 이나라를 굽어살피는 깨우친 임금 세종이오.");
+        }
+        if (cityValue == 10)
+        {
+            Console.WriteLine("제주도");
+        }
+        EnglishDay englishDay = EnglishDay.Thusday;
+        if (englishDay == EnglishDay.Saturday || englishDay == EnglishDay.Sunday)
+        {
+            Console.WriteLine("하루죙일 놀아라"); 
+        }
+
+        Border b = Border.Top | Border.Bottom;
+        if ((b & Border.Top) != 0)
+        {
+            if (b.HasFlag(Border.Bottom))
+            {
+                Console.WriteLine(b.ToString());
+            }
+        }
+        b = Border.Top | Border.Left | Border.Bottom | Border.Right;
+    }
     static async Task StringSample()
     {
         string s1 = "C#";
