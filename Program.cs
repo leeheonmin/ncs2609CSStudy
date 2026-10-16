@@ -12,8 +12,35 @@ class Program
 {
     static void Main(string[] args)
     {
-    
-        EnumSample();
+        OperatorSample();
+    }
+    static void OperatorSample()
+    {
+        int a = (1 + 2 - 3) * 4 / 5 % 6;
+        a += 3; // a = a + 3;
+        a = 10;
+
+        Console.WriteLine(a);
+        Console.WriteLine(a++);
+        Console.WriteLine(--a); 
+
+        byte bb = 7;
+        Console.WriteLine(bb);
+        byte c1 = 3, c2 = 4;
+        byte cc = (byte) ((bb & 3) | 4);
+        Console.WriteLine(cc);
+        // int val = (a > b) ? a : b;
+
+        int? i = null;
+        i = i ?? 0;
+        // Console.WriteLine(i);
+        int? i2 = 22;
+        i2 = i ?? 0;
+        // Console.WriteLine(i2);
+
+        string s = null;
+        string s2;
+        s2 = s ?? string.Empty;
     }
     public enum Category
     {
