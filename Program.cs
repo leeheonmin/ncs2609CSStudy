@@ -12,7 +12,68 @@ class Program
 {
     static void Main(string[] args)
     {
-        OperatorSample();
+        SwitchSample();
+    }
+    static void SwitchSample()
+    {
+        // int a = -11;
+        // int val = 0;
+
+        // if (a >= 0)
+        // {
+        //     val = a;
+        // }
+        // else
+        // {
+        //     val = -a;
+        // }
+        // val = (a > 0) ? a : -a;
+
+        string category = "사과";
+        int price = 0;
+
+        // switch (category)
+        // {
+        //     case "사과":
+        //         price = 1000;
+        //         break;
+        //     case "딸기":
+        //         price = 1100;
+        //         break;
+        //     case "포도":
+        //         price = 900;
+        //         break;
+        //     case "키위":
+        //         price = 1200;
+        //         break;
+        //     default:
+        //         price = 0;
+        //         break;
+        // }
+        // if (category == "사과" && category == "키위")
+        // {
+        //     price = 1000;
+        // }
+        // else if (category == "딸기")
+        // {
+        //     price = 1100;
+        // }
+        // else if (category == "포도")
+        // {
+        //     price = 900;
+        // }
+        // else if (category == "키위")
+        // {
+        //     price = 1200;
+        // }
+        price = category switch
+        {
+            "딸기" => 1100,
+            "포도" => 900,
+            "사과" or "키위" => 1000,
+            _ => 0
+        };
+        Console.WriteLine("price : {0}", price);
     }
     static void OperatorSample()
     {
