@@ -3,8 +3,10 @@ using System.Data;
 using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace CSStudy;
 
@@ -12,8 +14,95 @@ class Program
 {
     static void Main(string[] args)
     {
-        SwitchSample();
+        RepeatSample();
     }
+    static void RepeatSample()
+    {
+        // for (int i = 0; i < 100; i++)
+        // {
+        //     if (i % 2 == 0) continue;
+        //     Console.WriteLine(i);
+        //     if (i >= 10) break;
+        // }
+
+        // string[] array = ["AB", "CD", "EF"];
+        // foreach (string s in array)
+        // {
+        //     Console.WriteLine("string : {0}", s);
+        //     foreach (char c in s)
+        //     {
+        //         Console.WriteLine("char : {0}", c);
+        //     }
+        // }
+
+        // // foreach
+        // foreach (var item in array)
+        // {
+            
+        // }
+
+        // int a = 0, aa = 1;
+        // var b = 0; // , bb = 1;
+
+        // // Dictionary<int, char> dic = new Dictionary<int, char>();
+        // var dic = new Dictionary<int, char>();
+        // dic.Add(3, 'a');
+        // dic.Add(5, 'z');
+        // foreach (var key in dic)
+        // {
+        //     Console.WriteLine("key : {0}, value : {1}", key.Key, key.Value);
+        // }
+
+        // string[,,] arr = {
+        //     {{"1", "2"}, {"11", "22"}},
+        //     {{"3", "4"}, {"33", "44"}}
+        // };
+
+        // for (int i = 0; i < arr.GetLength(0); i++)
+        // {
+        //     for (int j = 0; j < arr.GetLength(1); j++)
+        //     {
+        //         for (int k = 0; k < arr.GetLength(2); k++)
+        //         {
+        //             Console.WriteLine(arr[i, j, k]);
+        //         }
+        //     }
+        // }
+
+        // foreach (var item in arr)
+        // {
+        //     Console.WriteLine(item[0]);
+        // } 
+
+        int i2 = 1;
+        // while (i2 <= 10)
+        // {
+        //     Console.WriteLine(i2);
+        //     i2++;
+        // }
+        // i2 = 10;
+        // while (i2 < 10)
+        // {
+        //     Console.WriteLine(i2);
+        //     i2++;
+        // }
+
+        // List<char> keyList = new List<char>();
+        var keyList = new List<char>();
+        ConsoleKeyInfo key;
+        do
+        {
+            key = Console.ReadKey();
+            keyList.Add(key.KeyChar);
+        } while (key.Key != ConsoleKey.Q);
+        Console.WriteLine();
+        foreach (var item in keyList)
+        {
+            Console.Write(item);
+        }
+        
+    }
+
     static void SwitchSample()
     {
         // int a = -11;
