@@ -14,7 +14,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        RepeatSample();
+        
+        foreach (int num in Getnumber())
+        {
+            Console.WriteLine(num);
+        }
+    }
+    static IEnumerable<int> Getnumber()
+    {
+        yield return 10;    
+        yield return 20;
+        yield return 30;
+    }
+
+    static int SampleMethod()
+    {
+        return 0;
     }
     static void RepeatSample()
     {
