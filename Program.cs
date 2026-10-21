@@ -15,10 +15,17 @@ class Program
     static void Main(string[] args)
     {
         
-        foreach (int num in Getnumber())
-        {
-            Console.WriteLine(num);
-        }
+        ConstSample();
+    }
+    static readonly DateTime StartTime = DateTime.Now;
+    static void ConstSample()
+    {
+        const int CSI = 1;
+        const float PI = 3.1415f;
+        
+        Console.WriteLine(PI);
+        Console.WriteLine(Math.PI);
+        Console.WriteLine(StartTime);
     }
     static IEnumerable<int> Getnumber()
     {
