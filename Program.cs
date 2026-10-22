@@ -14,8 +14,40 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        ConstSample();
+        TryCatchSample();
+    }
+    static void TryCatchSample()
+    {
+        try
+        {
+            ExceptionSample(0);
+        }
+        catch (DivideByZeroException e)
+        {
+            Console.WriteLine("예외 발생 : {0}", e.Message);
+            // throw e;
+        }
+        catch (IndexOutOfRangeException e)
+        {
+            Console.WriteLine("인덳 버위 벗어남");  
+            throw e;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        finally
+        {
+            Console.WriteLine("무조건 실행 됨");
+        }
+    }
+    static void ExceptionSample(int a)
+    {
+        Console.WriteLine("start Sample...");
+        int sum = 100 / a;
+        int[] arr = [0, 1, 2];
+        arr[a] = 6;
+        Console.WriteLine("end Sample...");
     }
     static readonly DateTime StartTime = DateTime.Now;
     static void ConstSample()
