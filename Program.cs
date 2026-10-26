@@ -7,6 +7,7 @@ using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml.Serialization;
+using MyUtil;
 
 namespace CSStudy;
 
@@ -14,8 +15,33 @@ class Program
 {
     static void Main(string[] args)
     {
-        Mypoint pt = new Mypoint(10, 12);
+        MakeLotto();
         
+    }
+    static void MakeLotto()
+    {
+        Random random = new Random();
+        // List<int> lotto = new List<int>();
+        HashSet<int> lotto = new HashSet<int>();
+
+        DateTime now = DateTime.Now;
+
+        // 오늘부터 다가오는 토요일까지 남은 일수
+        int daysUntilSaturday = ((int)DayOfWeek.Saturday - (int)now.DayOfWeek + 7) % 7;
+
+        DateTime drawDate = now.Date.AddDays(daysUntilSaturday);
+
+        while (lotto.Count < 6)
+        {
+           lotto.Add(random.Next(1, 46));
+        }
+
+        int[] arr = lotto.ToArray();
+        Array.Sort(arr);
+
+        Console.WriteLine($"{drawDate:yyyy년 M월 d일} 토요일 추첨 예정 번호");
+        Util.PrintArray(arr);
+
     }
      // 구조체(struct)
     struct Mypoint
