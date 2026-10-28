@@ -8,14 +8,40 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml.Serialization;
 using MyUtil;
-
+using MyClass;
+using Mysystem.MySubSystem;
+using System.ComponentModel;
 namespace CSStudy;
 
 class Program
 {
     static void Main(string[] args)
     {
-        MakeLotto();
+        MyCustomer mc = new MyCustomer(); 
+        mc.Name = "아무개";
+        mc.Age = 25;
+        mc.isMen = false;
+        string str = mc.GetCustomerData();
+        Console.WriteLine(str);
+
+        MyCustomer mc2 = new MyCustomer("홍길동", 20, true);
+        Console.WriteLine(mc2.GetCustomerData());
+
+        MyCustomer mc3 = new MyCustomer("홍길순", 18, false);
+        Console.WriteLine(mc3.GetCustomerData());
+
+        MyCustomer[] mcArr = new MyCustomer[3];
+        mcArr[0] = new MyCustomer();
+        mcArr[0].Name = "아무개";
+        mcArr[0].Age = 25;
+        mcArr[0].isMen = false;
+        mcArr[1] = new MyCustomer("홍길동", 20, true);
+        mcArr[2] = new MyCustomer("홍길순", 18, false);
+
+    
+        Class2 cs2 = new Class2();
+        cs2.RunClass2();
+        
         
     }
     static void MakeLotto()
