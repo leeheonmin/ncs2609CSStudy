@@ -11,11 +11,47 @@ using MyUtil;
 using MyClass;
 using Mysystem.MySubSystem;
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics.CodeAnalysis;
 namespace CSStudy;
 
 class Program
 {
+    double sum = 0d;
+    DateTime time;
+    bool? selected;
     static void Main(string[] args)
+    {
+        // CheckInput(0, );
+    }
+    public void CheckInput(int? i, double? d, DateTime? time, bool? selected)
+    {
+        if (i.HasValue && d.HasValue)
+        {
+            this.sum = (double)i.Value + (double)d.Value;
+        }
+
+        if (!time.HasValue)
+        {
+            throw new ArgumentException();
+        }
+        else 
+            this.time = time.Value;
+
+        if (selected == false)
+        this.selected = selected ?? false;
+    }
+    static void NullableSample()
+    {
+        int? i = null;
+        bool? b = null;
+
+        int?[] a = new int?[100];
+        if (i == null) b = true;
+
+        string str = null;
+    }
+    static void ClassStudy()
     {
         MyCustomer mc = new MyCustomer(); 
         mc.Name = "아무개";
@@ -41,7 +77,6 @@ class Program
     
         Class2 cs2 = new Class2();
         cs2.RunClass2();
-        
         
     }
     static void MakeLotto()
