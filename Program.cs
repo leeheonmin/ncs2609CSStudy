@@ -39,9 +39,9 @@ class Program
 
         string str = "Hello World!";
         string s1 = str[..5]; // Hello
-        string s2 = str[7..]; // 
-        string s3 = str[^5..];
-        string s4 = str.Substring(0, 5);
+        string s2 = str[7..]; // World
+        string s3 = str[^5..]; // World
+        string s4 = str.Substring(0, 5); // Hello
         Console.WriteLine(s4);
     }
     public void CheckInput(int? i, double? d, DateTime? time, bool? selected)
