@@ -31,7 +31,18 @@ class Program
         // int[] arr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         // int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         // int[] arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        int[] arr = [0, ~ 9];
+        Range range = 0..4;
+        int[] arr = [..9];
+        int[] arr3 = arr[range];
+        int aaa = arr3[idx];
+        Console.WriteLine(aaa);
+
+        string str = "Hello World!";
+        string s1 = str[..5]; // Hello
+        string s2 = str[7..]; // 
+        string s3 = str[^5..];
+        string s4 = str.Substring(0, 5);
+        Console.WriteLine(s4);
     }
     public void CheckInput(int? i, double? d, DateTime? time, bool? selected)
     {
@@ -62,31 +73,44 @@ class Program
     }
     static void ClassStudy()
     {
-        MyCustomer mc = new MyCustomer(); 
-        mc.Name = "아무개";
-        mc.Age = 25;
-        mc.isMen = false;
-        string str = mc.GetCustomerData();
-        Console.WriteLine(str);
+        // MyCustomer mc = new MyCustomer(); 
+        // mc.Name = "아무개";
+        // mc.Age = 25;
+        // mc.isMen = false;
+        // string str = mc.GetCustomerData();
+        // Console.WriteLine(str);
 
-        MyCustomer mc2 = new MyCustomer("홍길동", 20, true);
-        Console.WriteLine(mc2.GetCustomerData());
+        // MyCustomer mc2 = new MyCustomer("홍길동", 20, true);
+        // Console.WriteLine(mc2.GetCustomerData());
 
-        MyCustomer mc3 = new MyCustomer("홍길순", 18, false);
-        Console.WriteLine(mc3.GetCustomerData());
+        // MyCustomer mc3 = new MyCustomer("홍길순", 18, false);
+        // Console.WriteLine(mc3.GetCustomerData());
 
-        MyCustomer[] mcArr = new MyCustomer[3];
-        mcArr[0] = new MyCustomer();
-        mcArr[0].Name = "아무개";
-        mcArr[0].Age = 25;
-        mcArr[0].isMen = false;
-        mcArr[1] = new MyCustomer("홍길동", 20, true);
-        mcArr[2] = new MyCustomer("홍길순", 18, false);
+        // MyCustomer[] mcArr = new MyCustomer[3];
+        // mcArr[0] = new MyCustomer();
+        // mcArr[0].Name = "아무개";
+        // mcArr[0].Age = 25;
+        // mcArr[0].isMen = false;
+        // mcArr[1] = new MyCustomer("홍길동", 20, true);
+        // mcArr[2] = new MyCustomer("홍길순", 18, false);
 
-    
-        Class2 cs2 = new Class2();
-        cs2.RunClass2();
+        Class2 cs2 = new Class2(0);
+        Class2 cs22 = new(1);
+        var cs23 = new Class2(1);
+        // var cs24 = new();
+
+        Class1 cs11 = new();
+        cs11.Calculate(1, 2);
+
+        List<int> list1 = new List<int>();
+        List<int> list2 = new();
+        List<int> list3 = [];
+        var list4 = new List<int>();
+        // var list4 = new();
         
+        int[] arr = new int[]{};
+        var arr1 = new int[]{};
+        var arr2 = Array.Empty<int>();
     }
     static void MakeLotto()
     {
