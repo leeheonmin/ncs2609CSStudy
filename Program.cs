@@ -23,7 +23,58 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
-        // CheckInput(0, );
+        int ret = Calc(1, 2);
+
+    }
+
+    static int Calc(int a, int b, string calcType = "+")
+    {
+        switch(calcType)
+        {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / b;
+            default: throw new ArithmeticException();
+        }
+    }
+    static void NamedParametor()
+    {
+        Method1("홍길동", 18, 95);
+        Method1(name : "홍길순", age : 19,score : 95);
+        Method1(score : 30, age : 30, name : "아무개");
+    }
+    static void Method1(string name, int age, int score)
+    {
+        // Console.WriteLine("이름 : {0}({1}), {2}", name, age, score);
+        Console.WriteLine($"이름 : {name}({age}), {score}");
+    }
+
+    static void SwapSample()
+    {
+        int a = 10, b = 5;
+        Util.Swap(ref a, ref b);
+        Console.WriteLine($"a = {a}, b = {b}");
+    }
+        static bool GetData(int a, int b, out int c, out int d) // out은 내부 초기화
+    {
+        c = a + b;
+        d = a - b;
+        return true;
+    }
+    
+    static double GetData(ref int a, ref double b) // ref는 초기화가 필요
+    {
+        return ++a * ++b;
+    }
+    static void PassByValue()
+    {
+        // Program p = new Program();
+        Program P = new();
+
+        int val = 100;
+        // P.Calculate(ref val);
+        Console.WriteLine($"val = {val}");
     }
     static void ArrayLength()
     {
@@ -31,18 +82,18 @@ class Program
         // int[] arr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         // int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         // int[] arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        Range range = 0..4;
-        int[] arr = [..9];
-        int[] arr3 = arr[range];
-        int aaa = arr3[idx];
-        Console.WriteLine(aaa);
+        // Range range = 0..4;
+        // int[] arr = [..9];
+        // int[] arr3 = arr[range];
+        // int aaa = arr3[idx];
+        // Console.WriteLine(aaa);
 
-        string str = "Hello World!";
-        string s1 = str[..5]; // Hello
-        string s2 = str[7..]; // World
-        string s3 = str[^5..]; // World
-        string s4 = str.Substring(0, 5); // Hello
-        Console.WriteLine(s4);
+        // string str = "Hello World!";
+        // string s1 = str[..5]; // Hello
+        // string s2 = str[7..]; // World
+        // string s3 = str[^5..]; // World
+        // string s4 = str.Substring(0, 5); // Hello
+        // Console.WriteLine(s4);
     }
     public void CheckInput(int? i, double? d, DateTime? time, bool? selected)
     {
