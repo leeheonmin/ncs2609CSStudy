@@ -23,6 +23,17 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
+        MyButton btn = new();
+        btn.Click += new EventHandler(btn_Click);
+        btn.Text = "Run";
+    }
+    static void btn_Click(object sender, EventArgs e)
+    {
+        Console.WriteLine("버튼 클릭");
+    }
+    static void MethodParam()
+    {
+
         int ret = Calc(1, 2);
 
     }
