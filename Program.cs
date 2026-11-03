@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// #define TEST_ENV
+#define PROD_ENV
+
+using System.Collections;
 using System.Data;
 using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
@@ -13,6 +16,7 @@ using Mysystem.MySubSystem;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics.CodeAnalysis;
+
 namespace CSStudy;
 
 
@@ -22,6 +26,21 @@ class Program
     DateTime time;
     bool? selected;
     static void Main(string[] args)
+    {
+        bool verbose = false;
+#if (TEST_ENV)
+        Console.WriteLine("테스트 환경");
+        verbose = true;
+#else
+        Console.WriteLine("프로덕션 환경");
+#endif
+        if (verbose)
+        {
+            //
+        }
+    }
+
+    static void EnentSample()
     {
         MyButton btn = new();
         btn.Click += new EventHandler(btn_Click);
@@ -446,6 +465,7 @@ class Program
         string s2;
         s2 = s ?? string.Empty;
     }
+    #region 이넘
     public enum Category
     {
         Cake = 100,
@@ -503,6 +523,7 @@ class Program
         }
         b = Border.Top | Border.Left | Border.Bottom | Border.Right;
     }
+    #endregion 이넘
     static async Task StringSample()
     {
         string s1 = "C#";
