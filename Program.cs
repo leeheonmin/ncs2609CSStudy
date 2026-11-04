@@ -16,6 +16,7 @@ using Mysystem.MySubSystem;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace CSStudy;
 
@@ -27,6 +28,21 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
+        Scores s = new();
+        s.Data[0] = 10;
+        s[0] = 100;
+        Console.WriteLine(s.Data[0]);
+        Console.WriteLine(s[0]);
+
+        Phonebook book = new();
+        book["철수"] = "010-1234-5678";
+        Console.WriteLine(book["철수"]);
+
+        Board b = new();
+        b[1, 2] = 5;
+    }    
+
+    static void PreProcess() {
         bool verbose = false;
 #if (TEST_ENV)
         Console.WriteLine("테스트 환경");
@@ -52,9 +68,7 @@ class Program
     }
     static void MethodParam()
     {
-
         int ret = Calc(1, 2);
-
     }
 
     static int Calc(int a, int b, string calcType = "+")
