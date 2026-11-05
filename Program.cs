@@ -28,7 +28,15 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
-        Scores s = new();
+        Player p = new();
+        p.Name = "철수";
+        p.Score = -100;
+
+        Console.WriteLine(p.Name);
+        p.Something();
+    }
+    static void IndexerSampler()
+    {   Scores s = new();
         s.Data[0] = 10;
         s[0] = 100;
         Console.WriteLine(s.Data[0]);
