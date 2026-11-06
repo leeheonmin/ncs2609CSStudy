@@ -20,13 +20,24 @@ using System.Globalization;
 
 namespace CSStudy;
 
-
+class MyBase {}
+class MyClass : MyBase {}
 class Program
 {
     double sum = 0d;
     DateTime time;
     bool? selected;
     static void Main(string[] args)
+    {
+        MyClass c = new();
+    }
+    public void Test(object obj)
+    {
+        MyBase a = obj as MyBase;
+        bool ok = obj is MyBase;
+        MyBase b = (MyBase)obj;
+    }
+    static void PropertySample()
     {
         Player p = new();
         p.Name = "철수";
