@@ -29,7 +29,8 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
-        MyClass c = new();
+        string str = MyUtility.Convert(123);
+        int i = MyUtility.ConvertBack(str);
     }
     public void Test(object obj)
     {
