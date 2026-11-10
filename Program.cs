@@ -17,6 +17,7 @@ using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Net;
 
 namespace CSStudy;
 
@@ -28,6 +29,29 @@ class Program
     DateTime time;
     bool? selected;
     static void Main(string[] args)
+    {
+        // Genric의 지정 문자의 경우 직접 사용할때 그 형태가 결정이 된다.
+        
+        int x = 3;
+        int y = 4;
+        float fx = 3.0f;
+        float fy = 4.2f;
+        Util.Swap(ref fx, ref fy);
+
+        List<int> list1 = new();
+        List<float> list = new();
+
+        MyStack<int> numberStack = new();
+        MyStack<string> nameStack= new();
+
+        numberStack.Push(100);
+        int num = numberStack.Pop();
+
+        nameStack.Push("김철수");
+        string str = nameStack.Pop();
+    }
+
+static void StaticSample()
     {
         string str = MyUtility.Convert(123);
         int i = MyUtility.ConvertBack(str);
