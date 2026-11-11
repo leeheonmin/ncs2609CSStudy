@@ -30,6 +30,9 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
+        
+    }
+    static void GenricSample(){
         // Genric의 지정 문자의 경우 직접 사용할때 그 형태가 결정이 된다.
         
         int x = 3;
