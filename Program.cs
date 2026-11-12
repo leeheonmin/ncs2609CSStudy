@@ -30,7 +30,31 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
-        
+        // Program p = new();
+        // p.Test();
+        new Program().Test();
+    }
+    delegate int MyDelegate(string s);
+
+    void Test()
+    {
+        // 델리게이트 객체 생성
+        MyDelegate m = new MyDelegate(StringToInt);
+        // 델리케이트 객체를 메서드 전달
+        Run(m);
+    }
+
+    // 델리게이트 대상이 되는 메서드
+    int StringToInt(string s)
+    {
+        return int.Parse(s);
+    }
+    // 델리게이트를 전달 받는 메서드
+    void Run(MyDelegate m)
+    {
+        // 델리게이트로부터 메서드 실행
+        // int i = m.Ivoke("1123");
+        int i = m("123");
     }
     static void GenricSample(){
         // Genric의 지정 문자의 경우 직접 사용할때 그 형태가 결정이 된다.
