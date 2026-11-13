@@ -30,6 +30,32 @@ class Program
     bool? selected;
     static void Main(string[] args)
     {
+        new Program().RunSort();
+    }
+    void RunSort()
+    {
+        int[] a = [5, 53, 3, 7, 1];
+        // 오름차순
+        Util.CompareDelegate comA = AscendingCompere;
+        Util.Sort(a, comA);
+
+        // 내림차순
+        Util.CompareDelegate comD = DescendingCompare;
+        Util.Sort(a, comD);
+    }
+    // CompareDelegare와 동일한 Property
+    int AscendingCompere(int i1, int i2) 
+    {
+        if (i1 == i2) return 0;
+        return (i2 - i1) > 0 ? 1 : -1;
+    }
+    int DescendingCompare(int i1, int i2)
+    {
+        if (i1 == i2) return 0;
+        return (i1 - i2) > 0 ? 1 : -1;
+    }
+    void DelegteSample()
+    {
         // Program p = new();
         // p.Test();
         new Program().Test();

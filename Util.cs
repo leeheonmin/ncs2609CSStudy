@@ -29,4 +29,27 @@ public class Util
         // Console.WriteLine($"x = {x}, y = {y}");
     }
 
+
+    public delegate int CompareDelegate(int i1, int i2);
+
+    public static void Sort(int[] arr, CompareDelegate comp)
+    {
+        if (arr.Length < 2) return;
+        Console.WriteLine("함수 Property : " + comp.Method);
+
+        int ret;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            for (int j = i + 1; j < arr.Length; j++)
+            {
+                ret = comp(arr[i], arr[j]);
+                if (ret == - 1)
+                {
+                    Swap(ref arr[i], ref arr[j]);
+                }
+            }
+        }
+        PrintArray(arr);
+    }
+
 }
