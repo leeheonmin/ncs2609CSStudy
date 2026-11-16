@@ -18,6 +18,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
+using System.Net.Http.Headers;
+
 
 namespace CSStudy;
 
@@ -25,12 +27,31 @@ class MyBase {}
 class MyClass : MyBase {}
 class Program
 {
+    static MyArea area;
     double sum = 0d;
     DateTime time;
     bool? selected;
     static void Main(string[] args)
     {
-        new Program().RunSort();
+        area = new MyArea();
+
+        area.MyClick += Area_Click;
+        area.MyClick += AfterClick;
+        // area.MyClick = Area_Click;
+
+        area.ShowDialog();
+        
+    }
+
+    static void Area_Click(object sender)
+    {
+        area.Text += "MyArea 클릭";
+        area.label.Text += "클립!";
+    }
+    static void AfterClick(object seder)
+    {
+        area.Text += "AfterClick";
+        area.label.Text += "이것도 클릭!";
     }
     void RunSort()
     {
