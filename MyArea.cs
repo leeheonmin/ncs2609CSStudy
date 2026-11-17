@@ -17,7 +17,8 @@ class MyArea : Form
 
     public delegate void ClickDelegate(object sender);
 
-    public ClickDelegate MyClick;
+    // public ClickDelegate MyClick;
+    public event ClickDelegate MyClick;
 
     void MyAreaClicked()
     {

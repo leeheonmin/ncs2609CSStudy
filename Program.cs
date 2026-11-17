@@ -25,21 +25,47 @@ namespace CSStudy;
 
 class MyBase {}
 class MyClass : MyBase {}
+delegate int Calc(int a, int b);
+delegate void Printer(string s);
+
 class Program
 {
+    static void Main(string[] args)
+    {
+        Calc calc = Add;
+        Console.WriteLine(calc(3, 4));
+        calc = Multiply;
+        Console.WriteLine(calc(3, 4));
+
+        Printer P = PrintNormal;
+        P += PrintLoud;
+
+    }
+    static int Add(int a, int b) { return a+b; }
+    static int Multiply(int a, int b) { return a*b; }
+    static void PrintNormal(string m1) { Console.WriteLine(m1); }
+    static void PrintLoud(string m2) { Console.WriteLine(m2.ToUpper()); }
+    static void Greet(string msg, Printer printer)
+    {
+        Console.WriteLine("HI" + msg);
+    }
     static MyArea area;
     double sum = 0d;
     DateTime time;
     bool? selected;
-    static void Main(string[] args)
-    {
+    
+    static void DelegateSample2() {
         area = new MyArea();
-
+        // 이벤트 가입(구독)
         area.MyClick += Area_Click;
         area.MyClick += AfterClick;
         // area.MyClick = Area_Click;
-
+        // 이벤트 탈퇴(해지)
+        area.MyClick -= Area_Click;
         area.ShowDialog();
+        
+        area.MyClick += Anything;
+        area.MyClick -= Anything;
         
     }
 
@@ -52,6 +78,10 @@ class Program
     {
         area.Text += "AfterClick";
         area.label.Text += "이것도 클릭!";
+    }
+    static void Anything (object s)
+    {
+        
     }
     void RunSort()
     {
