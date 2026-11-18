@@ -32,6 +32,9 @@ class Program
 {
     static void Main(string[] args)
     {
+    }
+    void delegatemSample3()
+    {
         Calc calc = Add;
         Console.WriteLine(calc(3, 4));
         calc = Multiply;

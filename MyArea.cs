@@ -5,9 +5,16 @@ namespace CSStudy;
 
 class MyArea : Form
 {
+    void button1_Click(object sender, EventArgs a)
+    {
+        MessageBox.Show("Button 1 Click");
+    }
+
     public Label label = new Label();
     public MyArea()
     {
+        // this.MouseClick += new EventHandler(button1_Click);
+
         this.MouseClick += delegate{ MyAreaClicked(); };
         label.Text = "";
         label.AutoSize = true;
