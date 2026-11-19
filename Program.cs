@@ -19,6 +19,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using Accessibility;
 
 
 namespace CSStudy;
@@ -30,8 +34,38 @@ delegate void Printer(string s);
 
 class Program
 {
+    delegate bool Check(int n);
+    static bool IsEven (int n) { return n % 2 == 0; }
     static void Main(string[] args)
     {
+        // Action
+        Action a = () => Console.WriteLine("asdf");
+        Action<string> p = s => Console.WriteLine(s);
+     
+        // Func
+        Func<int, int> f = n => n * 2;
+        // Predicate
+        Predicate<int> p2 = n => n > 0;
+    }
+
+    static void LamdaSample() {
+        Check c1 = IsEven;
+        Check c2 = delegate(int n) { return n % 2 == 0; };
+        Check c3 =  n => n % 2 == 0;
+        // Calc cadd = new Calc(Add);
+        Calc cadd = Add;
+
+        // 무명 메서드
+        // Calc cmin = (Calc) delegate (int i1, int i2) { return i1 - i2; };
+        Calc cmin = delegate (int i1, int i2) { return i1 - i2; };
+        Calc cmul = delegate (int i1, int i2) { return i1 * i2; };
+
+        // 람다식 사용
+        Calc cmin2 = (i1, i2) => { return i1 - i2; };
+
+        int ia = cadd(10, 5);
+        int ib = cmin(10, 5);
+        int ic = cmul(10, 5);
     }
     void delegatemSample3()
     {
@@ -44,7 +78,7 @@ class Program
         P += PrintLoud;
 
     }
-    static int Add(int a, int b) { return a+b; }
+    static int Add(int a, int b) { return a + b; }
     static int Multiply(int a, int b) { return a*b; }
     static void PrintNormal(string m1) { Console.WriteLine(m1); }
     static void PrintLoud(string m2) { Console.WriteLine(m2.ToUpper()); }
