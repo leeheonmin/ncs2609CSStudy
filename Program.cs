@@ -38,6 +38,28 @@ class Program
     static bool IsEven (int n) { return n % 2 == 0; }
     static void Main(string[] args)
     {
+        var t = new { Name = "Kim", Age = 20 };
+        string s = t.Name;
+        int a = t.Age;
+    }
+
+    void RunTest()
+    {
+        var v = new[]
+        {
+            new { Name = "Lee", Age = 23, Phone = "02-2345-1234" },
+            new { Name = "Kim", Age = 32, Phone = "02-2345-1234" },
+            new { Name = "Park", Age = 45, Phone = "02-2345-1234" }
+        };
+
+        var list = v.Where (p => p.Age >= 30) .Select(p => new { p.Name, p.Age });
+        foreach (var item in list)
+        {
+            Console.WriteLine(item.Name);   
+        }
+    }
+    void ActionFuncSample()
+    {
         // Action
         Action a = () => Console.WriteLine("asdf");
         Action<string> p = s => Console.WriteLine(s);
