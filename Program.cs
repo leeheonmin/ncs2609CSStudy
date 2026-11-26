@@ -23,6 +23,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using Accessibility;
+using System.CodeDom;
+using System.Windows.Automation;
 
 
 namespace CSStudy;
@@ -32,17 +34,54 @@ class MyClass : MyBase {}
 delegate int Calc(int a, int b);
 delegate void Printer(string s);
 
+public static class ExClass
+{
+    public static string ToChangeCase(this String str)
+    {
+        StringBuilder sb = new StringBuilder();
+        foreach (var ch in str)
+        {
+            if (ch >= 'A' && ch <= 'Z')
+                sb.Append(((char)'a' + ch - 'A'));
+            else if (ch >= 'a' && ch <= 'z')
+                sb.Append((char)('A' + ch -'a'));
+            else
+                sb.Append(ch);
+        }
+        return sb.ToString();
+    }
+    public static bool Found(this String str, char ch)
+    {
+        int position = str.IndexOf(ch);
+        return position >= 0;
+    }
+}
 class Program
 {
     delegate bool Check(int n);
     static bool IsEven (int n) { return n % 2 == 0; }
     static void Main(string[] args)
     {
+        Pclass pc = new();
+        pc.Get(1);
+        Pstruct ps = new(100, "Kim");
+        Pclass2 ps2 = new();
+        ps2.Run();
+    }   
+
+    void Sample(){
         var t = new { Name = "Kim", Age = 20 };
         string s = t.Name;
         int a = t.Age;
     }
+    static void ExtensionMethodSample()
+    {
+        string s = "This is a Test";
+        string s2 = s.ToChangeCase();
 
+        bool found = s.Found('z');
+        Console.WriteLine($"{2},{found}");
+    }
     void RunTest()
     {
         var v = new[]
