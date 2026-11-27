@@ -62,6 +62,22 @@ class Program
     static bool IsEven (int n) { return n % 2 == 0; }
     static void Main(string[] args)
     {
+        dynamic v = 1;
+        Console.WriteLine(v.GetType());
+        v = "abc";
+        Console.WriteLine(v.GetType());
+
+        object o = 10;
+        // o = o + 20;
+        o = (int)o + 20;
+
+        dynamic d = 10;
+        d += 20;
+
+        Dclass1 dc1 = new();
+        dc1.Run();
+    }
+    static void partialSample(){
         Pclass pc = new();
         pc.Get(1);
         Pstruct ps = new(100, "Kim");
